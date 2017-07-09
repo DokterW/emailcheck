@@ -1,16 +1,21 @@
 #!/bin/bash
-# emailcheck v0.2
+# emailcheck v0.3
 # Made by Dr. Waldijk
 # Check if an email exists or not.
 # Read the README.md for more info.
 # By running this script you agree to the license terms.
 # Standard --------------------------------------------------------------------------
 EMCHNAM="emailcheck"
-EMCHVER="0.2"
+EMCHVER="0.3"
 # Config ----------------------------------------------------------------------------
 EMCHYOU=$1
 EMCHCHK=$2
-EMCHLOC=$3
+# If you create a file called as seen below, that will be the default save location.
+if [ -f /home/$USER/.dokter/emailcheck/EMCHLOC ]; then
+    EMCHLOC=$(cat /home/$USER/.dokter/emailcheck/EMCHLOC)
+elif [ -n "$3" ]; then
+    EMCHLOC=$3
+fi
 # -----------------------------------------------------------------------------------
 # telnet smtp.domain.com 25 << EOF
 # echo "HELO domain.com"
