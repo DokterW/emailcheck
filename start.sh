@@ -10,6 +10,7 @@ EMCHVER="0.2"
 # Config ----------------------------------------------------------------------------
 EMCHYOU=$1
 EMCHCHK=$2
+EMCHLOC=$3
 # -----------------------------------------------------------------------------------
 # telnet smtp.domain.com 25 << EOF
 # echo "HELO domain.com"
@@ -33,8 +34,8 @@ if [ -n "$EMCHYOU" ] && [ -n "$EMCHCHK" ]; then
         echo "RCPT TO: <$EMCHCHK>"
         sleep 1
         echo "QUIT"
-    } | tee -a -i $EMCHFIL.log | telnet $EMCHSMTP 25 | tee -a -i $EMCHFIL.log
+    } | tee -a -i $EMCHLOC$EMCHFIL.log | telnet $EMCHSMTP 25 | tee -a -i $EMCHLOC$EMCHFIL.log
 else
     echo "$EMCHNAM v$EMCHVER"
-    echo "emailcheck <your email address> <email address you want to verify>"
+    echo "emailcheck <your email address> <email address you want to verify> <location of file>"
 fi
