@@ -7,3 +7,6 @@ Verify an email address in CLI.
 ### Roadmap
 
 ### Changelog
+
+#### 2017-07-10
+* Minor fixes
